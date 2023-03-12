@@ -1,0 +1,8 @@
+class inherited Com.Cmd2.IMenu "";
+
+inclass
+
+inobject
+  cmdOpenGenres :Com.ComManaging.OpenIForm;
+
+end

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="MyMusic.Rec.Musicants" IsLibrary="1"/>
+    <Component Name="GenresStruct" Class="MyMusic.Rec.GenresStruct" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" Caption="Код исполнителя" Visible="True"/>
+          <Inherited Name="Name" Caption="Исполнитель" Visible="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="Жанры">
+          <Component Name="Genres" Class="Com.Ctrl.ITable" Adaptive="True" Subtable="EdtRec.Genres" Visible="True">
+            <Component Name="Genre" Class="Com.Ctrl.IEdit" Caption="Название" CardFileClass="MyMusic.Tab.Genres" Field="GenresStruct.Genre" HasButton="True" LookupField="Name"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

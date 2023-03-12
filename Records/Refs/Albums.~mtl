@@ -1,0 +1,3 @@
+record Albums title "Альбомы";
+
+end;

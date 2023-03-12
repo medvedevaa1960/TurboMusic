@@ -1,0 +1,16 @@
+class inherited Com.Tab.CodeName "Æàíðû";
+
+inclass public
+
+  var RecordClass :Class Com.Rec.IRecord := Rec.Genres;
+
+inobject private
+
+ proc Init;
+   inherited Init;
+
+   AddCode;
+   AddName;
+ end;
+
+end

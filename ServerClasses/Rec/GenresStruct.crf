@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.IStruct">
+    <Component Name="Genre" Class="Com.Fld.IField" Caption="Жанр" FieldName="Genre"/>
+  </Component>
+</Resource>

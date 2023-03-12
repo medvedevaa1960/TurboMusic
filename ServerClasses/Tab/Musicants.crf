@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited>
+    <Inherited Name="Current" Class="MyMusic.Rec.Musicants" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="ExtId" Excluded="True"/>
+          <Inherited Name="Code" After="ExtId" Caption="Код исполнителя" HasCaption="True" Visible="True" Width="40"/>
+          <Inherited Name="Name" After="Code" Caption="Исполнитель" HasCaption="True" Visible="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

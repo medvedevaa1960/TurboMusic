@@ -1,0 +1,14 @@
+class inherited Com.Rec.CodeName "Æàíðû";
+
+inclass public
+
+  #override
+  var RecordClass :Class Record := Refs.Genres;
+  #override
+  var EditorClass :Class Com.Frm.IEditor := Frm.Genres;
+  #override
+  var CardFormClass :Class  Com.Tab.CodeName := Tab.Genres
+
+inobject
+
+end

@@ -1,0 +1,7 @@
+record Musicants inherited Com.Base.CodeName title "Музыканты";
+
+  struct Genres array integer title "Жанры";
+    field Genre :Refs.Genres;
+  end;
+
+end;

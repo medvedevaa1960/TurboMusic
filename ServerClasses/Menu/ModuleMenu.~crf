@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Cmd2.IModule" Caption="Музыка" IconName="Com.CardfileTree">
+    <Component Name="MusicCommon1" Class="MyMusic.Menu.MusicCommon"/>
+  </Component>
+</Resource>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited>
+    <Inherited Name="Current" Class="Com.Rec.CodeName" IsLibrary="1"/>
+  </Inherited>
+</Resource>

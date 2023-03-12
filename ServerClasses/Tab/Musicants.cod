@@ -1,0 +1,15 @@
+class inherited Com.Tab.CodeName "Исполнители";
+
+inclass public
+
+  var RecordClass :Class Com.Rec.IRecord := Rec.Musicants;
+
+inobject private
+ proc Init;
+   inherited Init;
+
+   AddCode;
+   AddName;
+ end;
+
+end

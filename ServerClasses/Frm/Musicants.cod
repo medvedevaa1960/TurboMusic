@@ -1,0 +1,33 @@
+class inherited Com.Frm.ICodeName "Исполнители";
+
+inclass public
+
+  var RecordClass :Class Com.Rec.CodeName := Rec.Musicants;
+
+inclass private
+
+ #override
+  var UseResource :Logical := true;
+
+inobject public
+
+  GenresStruct :MyMusic.Rec.GenresStruct;
+
+inobject private
+
+  #override
+  FRecord :MyMusic.Rec.Musicants;
+
+  #override
+  proc InitRecord;
+     inherited InitRecord;
+     GenresStruct = FRecord.Genres.DefStruct
+  end
+
+  #override
+  proc AfterInit
+    inherited AfterInit
+    GenresStruct = nil
+  end
+
+end

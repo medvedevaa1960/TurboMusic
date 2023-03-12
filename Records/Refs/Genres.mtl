@@ -1,0 +1,3 @@
+record Genres inherited Com.Base.CodeName title "Жанры";
+
+end;

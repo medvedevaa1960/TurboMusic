@@ -1,0 +1,18 @@
+class inherited Com.Frm.ICodeName "Æàíðû";
+
+inclass public
+
+  #override
+  var UseResource :Logical := true;
+
+  var RecordClass :Class Com.Rec.CodeName := Rec.Genres;
+
+inobject private
+  proc Init;
+    inherited Init;
+
+--    Code.Visible = true;
+--    Name.Visible = true;
+  end; 
+
+end

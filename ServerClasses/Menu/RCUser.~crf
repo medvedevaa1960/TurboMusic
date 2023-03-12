@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IRoleCenter">
+  <Inherited>
+    <Inherited Name="MainGroup">
+      <Component Name="Group1" Class="Com.Cmd2.IGroup" Caption="Справочники">
+        <Component Name="OpenGenres" Class="Com.ComManaging.OpenIForm" Caption="Жанры" FormClassName="MyMusic.Tab.Genres" IconName="Com.Tasks"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

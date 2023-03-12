@@ -1,0 +1,9 @@
+record Albums inherited Com.Base.CodeName title "Альбомы";
+  field Year :Integer;
+  field Single :Logical;
+
+  struct Genres array integer title "Жанры";
+    field Genre :Refs.Genres;
+  end;
+
+end;

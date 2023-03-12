@@ -1,0 +1,15 @@
+class inherited Com.Rec.CodeName "Исполнители";
+
+inclass public
+
+  #override
+  var RecordClass :Class Record := Refs.Musicants;
+  #override
+  var EditorClass :Class Com.Frm.IEditor := Frm.Musicants;
+  #override
+  var CardFormClass :Class  Com.Tab.CodeName := Tab.Musicants;
+
+inobject public
+  Genres :Com.ISubtable{Rec.GenresStruct};
+
+end

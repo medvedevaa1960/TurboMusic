@@ -1,0 +1,14 @@
+class inherited Com.IStruct "Структура с жанрами";
+
+inclass public
+
+  type TGenresStruct = Refs.Musicants.Genres
+
+inclass public
+  #override
+  var StructClass :Class Structure := TGenresStruct;
+
+inobject
+  Genre :Com.Fld.IField{Rec.Genres};
+
+end

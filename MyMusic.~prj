@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project Version="1">
+  <Options Caption="Новый проект" Comment="Проект создан мастером проектов" Version="1.00" Author="Copyright © 2023 Arkady" Code="0" SubCode="0" WebCode="0" WebSubCode="0" Frontal="True"/>
+  <Usage>
+    <Project Name="Bas"/>
+    <Project Name="Com"/>
+  </Usage>
+  <Groups>
+    <Group Name="Records" Type="Documents" Disabled="False"/>
+  </Groups>
+</Project>
