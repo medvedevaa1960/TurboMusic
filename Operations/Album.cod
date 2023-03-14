@@ -1,0 +1,9 @@
+class "";
+
+  oper RegisterAlbum (Musicant :refMusicants = nil; Genre :refGenres = nil);
+--    Credit Sales.Расчеты, Сумма = Sum^Руб,
+--      Customer = Customer, DocType = 1, Комментарий = Comment + '(' + Str(ID) + ')';
+  end;
+
+
+end

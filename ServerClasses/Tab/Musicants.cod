@@ -4,12 +4,15 @@ inclass public
 
   var RecordClass :Class Com.Rec.IRecord := Rec.Musicants;
 
+  #override
+  var UseResource :Logical := true
+
 inobject private
  proc Init;
    inherited Init;
 
-   AddCode;
-   AddName;
+--   AddCode;
+--   AddName;
  end;
 
 end

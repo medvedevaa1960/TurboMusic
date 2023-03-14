@@ -8,5 +8,7 @@
   <Groups>
     <Group Name="Records" Type="Documents" Disabled="False"/>
     <Group Name="ServerClasses" Type="Classes" Disabled="False"/>
+    <Group Name="AccStruct" Type="CalcStructs" Disabled="False"/>
+    <Group Name="Operations" Type="CalcClasses" Disabled="False"/>
   </Groups>
 </Project>

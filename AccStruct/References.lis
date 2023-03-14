@@ -1,0 +1,15 @@
+reference  refGenres from   Refs.Genres, filter "", title "Жанры";
+  field Code        synonym Код, Name    :String, from Code;
+  field Description synonym Наименование :String, notrefresh, notloaded, from Name;
+end;
+
+reference  refMusicants from   Refs.Musicants, title "Музыканты";
+  field Code        synonym Код, Name    :String, from Code;
+  field Description synonym Наименование :String, notrefresh, notloaded, from Name;
+end;
+
+reference refUnit synonym спрЕдИзм :Cur, title "@Unit:RefTitle=Валюты и единицы измерения";
+  field Code synonym Код, Name     :String;
+necessary
+  шт;
+end;
