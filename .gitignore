@@ -1,0 +1,17 @@
+*.#*
+*.~*
+*.bak
+*.deb
+*.dsk
+*.sig
+*.scc
+*.orig
+info.lst
+/TMSX
+/MyPr
+/TiS_TEST
+/Tests
+/Budget_Maxi
+/Budget_CBG
+!.gitignore
+
