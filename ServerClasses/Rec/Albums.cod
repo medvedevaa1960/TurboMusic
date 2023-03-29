@@ -1,0 +1,27 @@
+class inherited Com.Rec.CodeName "Альбомы";
+
+inclass public
+
+  #override
+  var UseResource :Logical := true
+
+  #override
+  var RecordClass :Class Record := Refs.Albums;
+  #override
+  var EditorClass :Class Com.Frm.IEditor := Frm.Albums;
+  #override
+  var CardFormClass :Class  Com.Tab.CodeName := Tab.Albums;
+
+inobject public
+
+  GenresAlbums :Com.ISubtable{Rec.GenresStructAlbums};
+
+--  func HasGenre(aGenre :Rec.Genres) :Logical
+--    for var I = 1..GenresAlbums.Count do
+--      if GenresAlbums[I].Equal(aGenre) then
+--        return true
+--      end
+--    end
+--  end
+
+end

@@ -1,0 +1,20 @@
+class inherited Com.IStruct "Структура с жанрами для альбомов";
+
+inclass public
+
+  type TGenresStructAlbums = Refs.Albums.GenresAlbums
+
+inclass private
+
+ #override
+  var UseResource :Logical := true;
+
+inclass public
+  #override
+  var StructClass :Class Structure := TGenresStructAlbums;
+
+inobject  public
+
+  GenresAlbum :Com.Fld.IField{Rec.Genres};
+
+end

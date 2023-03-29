@@ -1,0 +1,34 @@
+class inherited Com.Frm.ICodeName "Альбомы";
+
+inclass public
+
+  var RecordClass :Class Com.Rec.CodeName := Rec.Albums;
+
+inclass private
+
+ #override
+  var UseResource :Logical := true;
+
+inobject public
+
+  GenresStructAlbums :MyMusic.Rec.GenresStructAlbums;
+
+inobject private
+
+  #override
+  FRecord :MyMusic.Rec.Albums;
+  Singled :Com.Ctrl.ICheckBox;
+
+  #override
+  proc InitRecord;
+     inherited InitRecord;
+     GenresStructAlbums = FRecord.GenresAlbums.DefStruct
+  end
+
+  #override
+  proc AfterInit
+    inherited AfterInit
+    GenresStructAlbums = nil
+  end
+
+end

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="MyMusic.Rec.Albums" IsLibrary="1"/>
+    <Component Name="GenresStructAlbums" Class="MyMusic.Rec.GenresStructAlbums" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" Caption="Код альбома" Visible="True"/>
+          <Inherited Name="Name" Caption="Название альбома" Visible="True"/>
+        </Inherited>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup">
+          <Component Name="Singled" Class="Com.Ctrl.ICheckBox" Caption="Одинарный"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,18 @@
+class inherited Com.Tab.CodeName "Альбомы";
+
+inclass public
+
+  var RecordClass :Class Com.Rec.IRecord := Rec.Albums;
+
+  #override
+  var UseResource :Logical := true
+
+inobject private
+ proc Init;
+   inherited Init;
+
+--   AddCode;
+--   AddName;
+ end;
+
+end
