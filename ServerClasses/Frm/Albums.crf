@@ -2,7 +2,8 @@
 <Resource Version="2" Inherited="Com.Frm.ICodeName">
   <Inherited>
     <Inherited Name="EdtRec" Class="MyMusic.Rec.Albums" IsLibrary="1"/>
-    <Component Name="GenresStructAlbums" Class="MyMusic.Rec.GenresStructAlbums" IsLibrary="1" After="EdtRec"/>
+    <Component Name="MusicantStruct" Class="MyMusic.Rec.MusicantStruct" IsLibrary="1" After="EdtRec"/>
+    <Component Name="GenresStructAlbums" Class="MyMusic.Rec.GenresStructAlbums" IsLibrary="1"/>
     <Inherited Name="RootFrame">
       <Inherited Name="FieldsFrame">
         <Inherited Name="Group1">
@@ -10,8 +11,20 @@
           <Inherited Name="Name" Caption="Название альбома" Visible="True"/>
         </Inherited>
         <Component Name="Group2" Class="Com.Ctrl.IGroup">
-          <Component Name="Singled" Class="Com.Ctrl.ICheckBox" Caption="Одинарный"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="Добавить жанры:"/>
+          <Component Name="Year" Class="Com.Ctrl.IEdit" Caption="Год выпуска" Field="EdtRec.Year" FieldFormat="YYYY"/>
+          <Component Name="Singled" Class="Com.Ctrl.ICheckBox" Caption="Одинарный" Field="EdtRec.Singled"/>
         </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="Жанры" Visible="True">
+          <Component Name="Musicant" Class="Com.Ctrl.ITable" Adaptive="True" Subtable="EdtRec.Musicant" Visible="True">
+            <Component Name="Musicants" Class="Com.Ctrl.IEdit" Caption="Исполнитель" CardFileClass="MyMusic.Tab.Musicants" Field="MusicantStruct.Musicant" HasButton="True" LookupField="Name" OnChange="MusicantsOnChange" Visible="True"/>
+          </Component>
+          <Component Name="Genres" Class="Com.Ctrl.ITable" Adaptive="True" Subtable="EdtRec.GenresAlbums" Visible="True">
+            <Component Name="Genre" Class="Com.Ctrl.IEdit" Caption="Жанры" CardFileClass="MyMusic.Tab.Genres" Field="GenresStructAlbums.GenresAlbum" HasButton="True" LookupField="Name" Visible="True"/>
+          </Component>
+        </Inherited>
       </Inherited>
     </Inherited>
   </Inherited>

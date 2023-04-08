@@ -4,7 +4,7 @@
     <Inherited Name="MainGroup">
       <Component Name="Group1" Class="Com.Cmd2.IGroup" Caption="Основное ">
         <Component Name="cmdOpenGenres" Class="Com.ComManaging.OpenIForm" Caption="Жанры" FormClassName="MyMusic.Tab.Genres"/>
-        <Component Name="cmdOpenMusicants" Class="Com.ComManaging.OpenIForm" Caption="Исполнители" FormClassName="MyMusic.Tab.Musicants"/>
+        <Component Name="cmdOpenMusicants" Class="Com.ComManaging.OpenIForm" Caption="Исполнители" FormClassName="MyMusic.Tab.Musicants" IconName="Com.User_"/>
       </Component>
     </Inherited>
   </Inherited>

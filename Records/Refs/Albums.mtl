@@ -1,7 +1,10 @@
 record Albums inherited Com.Base.CodeName title "Альбомы";
   field Year :Date;
   field Single :Logical;
-  field Musicant : Refs.Musicants;
+
+  struct MusicantAlbum array integer title "Исполнитель";
+    field Musicant : Refs.Musicants;
+  end;
 
   struct GenresAlbums array integer title "Жанры";
     field GenresAlbum :Refs.Genres;

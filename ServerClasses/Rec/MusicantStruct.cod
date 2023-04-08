@@ -1,0 +1,22 @@
+class inherited  Com.IStruct "Структура с музыкантами для альбомов";
+
+inclass public
+
+  type TMusicantsStruct = Refs.Albums.MusicantAlbum
+
+inclass private
+
+ #override
+  var UseResource :Logical := true;
+
+inclass public
+  #override
+  var StructClass :Class Structure := TMusicantsStruct;
+
+inobject  public
+
+  Musicant :Com.Fld.IField{Rec.Musicants};
+
+
+
+end

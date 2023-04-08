@@ -4,5 +4,6 @@ inclass
 
 inobject
   cmdOpenGenres :Com.ComManaging.OpenIForm;
+  cmdOpenMusicants :Com.ComManaging.OpenIForm;
 
 end

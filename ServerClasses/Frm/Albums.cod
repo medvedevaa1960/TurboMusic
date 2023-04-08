@@ -18,17 +18,45 @@ inobject private
   #override
   FRecord :MyMusic.Rec.Albums;
   Singled :Com.Ctrl.ICheckBox;
+  Year :Com.Ctrl.IEdit;
+  MusicantStruct :MyMusic.Rec.MusicantStruct;
+  Static1 :Com.Ctrl.IStatic;
+
+
+  proc MusicantsOnChange(aSender :Com.Ctrl.IEdit; aIndex :Integer)
+    var vMusicant = FRecord.Musicant[aIndex].Musicant
+    for var I = 1..vMusicant$.Genres.Count do
+      var vGenre = vMusicant$.Genres[I].Genre$
+      if vGenre._NotNull then
+        var vFound = false
+        for var J = 1..FRecord.GenresAlbums.Count do
+          var vAlbubGenre = FRecord.GenresAlbums[J].GenresAlbum$
+  --        vFound = Com.Rec.IRecord.Eq(vGenre$, vAlbubGenre$)
+          vFound = (vGenre?.InternalRecord = vAlbubGenre?.InternalRecord)
+          if vFound then
+            break
+          end
+        end
+        if not vFound then
+          var vAlbubGenre = FRecord.GenresAlbums.AddEx
+          vAlbubGenre.GenresAlbum$ = vGenre
+        end
+      end
+    end
+  end
 
   #override
   proc InitRecord;
      inherited InitRecord;
      GenresStructAlbums = FRecord.GenresAlbums.DefStruct
+     MusicantStruct = FRecord.Musicant.DefStruct
   end
 
   #override
   proc AfterInit
     inherited AfterInit
     GenresStructAlbums = nil
+    MusicantStruct = nil
   end
 
 end

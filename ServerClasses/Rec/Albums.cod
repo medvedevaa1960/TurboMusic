@@ -15,6 +15,9 @@ inclass public
 inobject public
 
   GenresAlbums :Com.ISubtable{Rec.GenresStructAlbums};
+  Singled :Com.Fld.IField;
+  Year :Com.Fld.IField;
+  Musicant :Com.ISubtable{Rec.MusicantStruct};
 
 --  func HasGenre(aGenre :Rec.Genres) :Logical
 --    for var I = 1..GenresAlbums.Count do

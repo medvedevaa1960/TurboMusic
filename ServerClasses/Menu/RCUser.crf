@@ -5,6 +5,7 @@
       <Component Name="Group1" Class="Com.Cmd2.IGroup" Caption="Справочники">
         <Component Name="OpenGenres" Class="Com.ComManaging.OpenIForm" Caption="Жанры" FormClassName="MyMusic.Tab.Genres" IconName="Com.Tasks"/>
         <Component Name="OpenMusicants" Class="Com.ComManaging.OpenIForm" Caption="Исполнители" FormClassName="MyMusic.Tab.Musicants" IconName="Com.User_"/>
+        <Component Name="OpenAlbums" Class="Com.ComManaging.OpenIForm" Caption="Альбомы" FormClassName="MyMusic.Tab.Albums" IconName="Com.layer-group-regular"/>
       </Component>
     </Inherited>
   </Inherited>

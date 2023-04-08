@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Resource Version="2" Inherited="Com.Rec.CodeName">
   <Inherited>
-    <Component Name="GenresAlbums" Class="Com.ISubtable" After="#0" StructClass="MyMusic.Rec.GenresStructAlbums" SubtableName="GenresAlbums"/>
+    <Component Name="Year" Class="Com.Fld.IField" After="#0" FieldName="Year" ValueType="VarDate"/>
+    <Component Name="Singled" Class="Com.Fld.IField" FieldName="Single" ValueType="VarLogical"/>
+    <Component Name="Musicant" Class="Com.ISubtable" StructClass="MyMusic.Rec.MusicantStruct" SubtableName="MusicantAlbum"/>
+    <Component Name="GenresAlbums" Class="Com.ISubtable" StructClass="MyMusic.Rec.GenresStructAlbums" SubtableName="GenresAlbums"/>
   </Inherited>
 </Resource>
