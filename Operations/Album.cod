@@ -1,9 +1,9 @@
---class "";
---
---  oper RegisterAlbum (Musicant :refMusicants = nil; GenresAlbums :refGenres = nil);
-----    Credit Sales.Расчеты, Сумма = Sum^Руб,
-----      Customer = Customer, DocType = 1, Комментарий = Comment + '(' + Str(ID) + ')';
---  end;
---
---
---end
+class "";
+
+  oper RegisterAlbum (Musicant :refMusicants = nil; GenresAlbums :refGenres = nil);
+    Debit Music.MSC1, Musicant = Musicant, Genre = GenresAlbums;
+    -- Customer = Customer, DocType = 1, Комментарий = Comment + '(' + Str(ID) + ')';
+  end;
+
+
+end

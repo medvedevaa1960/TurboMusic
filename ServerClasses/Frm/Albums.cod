@@ -1,5 +1,7 @@
 class inherited Com.Frm.ICodeName "Альбомы";
 
+  import Com.Consts
+
 inclass public
 
   var RecordClass :Class Com.Rec.CodeName := Rec.Albums;
@@ -16,21 +18,47 @@ inobject public
 inobject private
 
   #override
-  FRecord :MyMusic.Rec.Albums;
-  Singled :Com.Ctrl.ICheckBox;
-  Year :Com.Ctrl.IEdit;
+  FRecord        :MyMusic.Rec.Albums;
+  Singled        :Com.Ctrl.ICheckBox;
+  Year           :Com.Ctrl.IEdit;
   MusicantStruct :MyMusic.Rec.MusicantStruct;
-  Static1 :Com.Ctrl.IStatic;
+  AddGenres      :MyMusic.Rec.GenresStruct;
+
+  proc ButAddGenresForAlbumOnClick(aSender :Com.Ctrl.IControl; aIndex :Integer)
+    #warning "TODO: фильтр на незадействованные жанры"
+    Tab.Genres.ShowFormEx(,, BlockedWindow,
+                          proc( aSender :Com.Frm.IForm; aModalResult :Integer )
+                            if aModalResult = cmOk then
+                              var vTab = Tab.Genres(aSender)
+                              if vTab.CardFile.SelectedCount > 0 then
+                                for var I = 1..vTab.CardFile.Selected.Count do
+                                  var vRec =  Rec.Genres.OpenRecord(vTab.CardFile.Selected[I])
+                                  AddGenre(vRec)
+                                end
+                              else
+                                AddGenre(vTab.Current as Rec.Genres)
+                              end
+                            end
+                          end
+                          )
+  end
+
+
+  proc AddGenre(aGenre :Rec.Genres)
+    #warning "TODO: проверить, что жанра нет в списке жанров"
+    var vAlbumGenre = FRecord.GenresAlbums.AddEx
+    vAlbumGenre.GenresAlbum = aGenre
+  end
 
 
   proc MusicantsOnChange(aSender :Com.Ctrl.IEdit; aIndex :Integer)
     var vMusicant = FRecord.Musicant[aIndex].Musicant
-    for var I = 1..vMusicant$.Genres.Count do
-      var vGenre = vMusicant$.Genres[I].Genre$
+    for var I = 1..vMusicant.Genres.Count do
+      var vGenre = vMusicant.Genres[I].Genre$
       if vGenre._NotNull then
         var vFound = false
         for var J = 1..FRecord.GenresAlbums.Count do
-          var vAlbubGenre = FRecord.GenresAlbums[J].GenresAlbum$
+          var vAlbubGenre = FRecord.GenresAlbums[J].GenresAlbum
   --        vFound = Com.Rec.IRecord.Eq(vGenre$, vAlbubGenre$)
           vFound = (vGenre?.InternalRecord = vAlbubGenre?.InternalRecord)
           if vFound then
@@ -39,7 +67,7 @@ inobject private
         end
         if not vFound then
           var vAlbubGenre = FRecord.GenresAlbums.AddEx
-          vAlbubGenre.GenresAlbum$ = vGenre
+          vAlbubGenre.GenresAlbum = vGenre
         end
       end
     end
@@ -50,6 +78,7 @@ inobject private
      inherited InitRecord;
      GenresStructAlbums = FRecord.GenresAlbums.DefStruct
      MusicantStruct = FRecord.Musicant.DefStruct
+     -- AddGenres = GenresStruct.DefStruct
   end
 
   #override

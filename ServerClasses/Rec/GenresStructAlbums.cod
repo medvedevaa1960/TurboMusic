@@ -15,6 +15,6 @@ inclass public
 
 inobject  public
 
-  GenresAlbum :Com.Fld.IField{Rec.Genres};
+  GenresAlbum :Com.Fld.IField as Rec.Genres;
 
 end

@@ -1,26 +1,27 @@
---domain Music notaccumulated, static;
---
---type TMusicCube;
+domain Music notaccumulated, static;
+
+type TMusicCube;
 --  parameter Time        :Date;
---  parameter Musicant    :refMusicants;
---  parameter Genre       :refGenres;
---  parameter Counter     :unit refUnit = 1^רע;
---end;
---
---accounts Music;
---  סקוע MSC1  :TMusicCube;
---end;
---
---Journal Alboms title "ְכüבמלû";
---  Records Refs.Albums;
-----  Filter "";
---  DateField Year;
---
---  Card Com.BaseCard;
---
---  Operation Album.RegisterAlbum from Genre;
---   -- parameter Musicant from ^Musicant;
---   -- parameter Genre from Genre;
---  end;
---end;
+  parameter Musicant    :refMusicants;
+  parameter Genre       :refGenres;
+  parameter Counter     :unit refUnit = 1^רע;
+end;
+
+accounts Music;
+  סקוע MSC1  :TMusicCube;
+end;
+
+Journal Alboms title "ְכüבמלû";
+  Records Refs.Albums;
+  Filter "";
+  DateField Year;
+
+  Card Com.BaseCard;
+
+  Operation Album.RegisterAlbum from GenresAlbums;
+--    parameter Musicant from ^Musicant;
+--    parameter Single from Single;
+    parameter GenresAlbums  from GenresAlbum;
+  end;
+end;
 

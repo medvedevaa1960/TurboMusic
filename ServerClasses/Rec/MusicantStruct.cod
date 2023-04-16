@@ -15,7 +15,7 @@ inclass public
 
 inobject  public
 
-  Musicant :Com.Fld.IField{Rec.Musicants};
+  Musicant :Com.Fld.IField as Rec.Musicants;
 
 
 
