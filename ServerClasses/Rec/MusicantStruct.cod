@@ -17,6 +17,4 @@ inobject  public
 
   Musicant :Com.Fld.IField as Rec.Musicants;
 
-
-
 end

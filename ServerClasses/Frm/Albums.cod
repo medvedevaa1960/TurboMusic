@@ -24,6 +24,19 @@ inobject private
   MusicantStruct :MyMusic.Rec.MusicantStruct;
   AddGenres      :MyMusic.Rec.GenresStruct;
 
+  func MusicantOnDelete(aSender :Com.Ctrl.ITable; aIndex :Integer) :Logical
+    -- Удалили все жанры
+    FRecord.GenresAlbums.Clear;
+    -- Очистили поле Исполнитель
+    FRecord.Musicant.Clear
+  end
+
+  proc EditorOnShow(aSender :Com.Frm.IForm)
+    if FRecord.IsNew then
+      Singled.Checked = true
+    end
+  end
+
   proc ButAddGenresForAlbumOnClick(aSender :Com.Ctrl.IControl; aIndex :Integer)
     #warning "TODO: фильтр на незадействованные жанры"
     Tab.Genres.ShowFormEx(,, BlockedWindow,
@@ -46,38 +59,65 @@ inobject private
 
   proc AddGenre(aGenre :Rec.Genres)
     #warning "TODO: проверить, что жанра нет в списке жанров"
-    var vAlbumGenre = FRecord.GenresAlbums.AddEx
-    vAlbumGenre.GenresAlbum = aGenre
-  end
-
-
-  proc MusicantsOnChange(aSender :Com.Ctrl.IEdit; aIndex :Integer)
-    var vMusicant = FRecord.Musicant[aIndex].Musicant
-    for var I = 1..vMusicant.Genres.Count do
-      var vGenre = vMusicant.Genres[I].Genre$
-      if vGenre._NotNull then
-        var vFound = false
-        for var J = 1..FRecord.GenresAlbums.Count do
-          var vAlbubGenre = FRecord.GenresAlbums[J].GenresAlbum
-  --        vFound = Com.Rec.IRecord.Eq(vGenre$, vAlbubGenre$)
-          vFound = (vGenre?.InternalRecord = vAlbubGenre?.InternalRecord)
-          if vFound then
-            break
-          end
-        end
-        if not vFound then
-          var vAlbubGenre = FRecord.GenresAlbums.AddEx
-          vAlbubGenre.GenresAlbum = vGenre
-        end
+    -- Проверка на наличие такого жанра
+    var vAlbumGenres = FRecord.GenresAlbums
+    var vFound = false
+    for var I = 1..vAlbumGenres.Count do
+      var vGenre = vAlbumGenres[I].GenresAlbum
+      vFound = (vGenre?.InternalRecord = aGenre?.InternalRecord)
+      if vFound then
+        break
       end
     end
+    if not vFound then
+      var vAlbumGenre = FRecord.GenresAlbums.AddEx
+      vAlbumGenre.GenresAlbum = aGenre
+    end
   end
+
+  proc MusicantsOnChange(aSender :Com.Ctrl.IEdit; aIndex :Integer)
+    -- Удалили все жанры
+    FRecord.GenresAlbums.Clear;
+    -- Добавим жанры этого музыканта
+    var vMusicant = FRecord.Musicant[aIndex].Musicant
+    if vMusicant <> nil then
+      for var I = 1..vMusicant.Genres.Count do
+        var vGenre = vMusicant.Genres[I].Genre$
+         if vGenre._NotNull then
+           var vAlbumGenre = FRecord.GenresAlbums.AddEx
+           vAlbumGenre.GenresAlbum = vGenre
+         end
+      end
+    end
+--    var vMusicant = FRecord.Musicant[aIndex].Musicant
+--    for var I = 1..vMusicant.Genres.Count do
+--      var vGenre = vMusicant.Genres[I].Genre$
+--      if vGenre._NotNull then
+--        var vFound = false
+--        for var J = 1..FRecord.GenresAlbums.Count do
+--          var vAlbubGenre = FRecord.GenresAlbums[J].GenresAlbum
+--  --        vFound = Com.Rec.IRecord.Eq(vGenre$, vAlbubGenre$)
+--          vFound = (vGenre?.InternalRecord = vAlbubGenre?.InternalRecord)
+--          if vFound then
+--            break
+--          end
+--        end
+--        if not vFound then
+--          var vAlbubGenre = FRecord.GenresAlbums.AddEx
+--          vAlbubGenre.GenresAlbum = vGenre
+--        end
+--      end
+--    end
+  end
+
 
   #override
   proc InitRecord;
      inherited InitRecord;
      GenresStructAlbums = FRecord.GenresAlbums.DefStruct
      MusicantStruct = FRecord.Musicant.DefStruct
+     -- Одинарный включено по умолчанию
+     -- Singled.Checked = FRecord.Singled
      -- AddGenres = GenresStruct.DefStruct
   end
 
@@ -86,6 +126,7 @@ inobject private
     inherited AfterInit
     GenresStructAlbums = nil
     MusicantStruct = nil
+    -- Singled.Checked = true
   end
 
 end

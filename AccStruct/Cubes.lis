@@ -11,17 +11,30 @@ accounts Music;
   счет MSC1  :TMusicCube;
 end;
 
-Journal Alboms title "Альбомы";
+--Journal Alboms title "Альбомы";
+--  Records Refs.Albums;
+--  Filter "";
+--  DateField Year;
+--
+--  Card Com.BaseCard;
+--
+--  Operation Album.RegisterAlbum from GenresAlbums;
+----    parameter Musicant from  Refs.Albums.Musicant;
+----    parameter Single from Single;
+----    parameter AlbumCode from Refs.Albums.Code;
+--    parameter Genre     from GenresAlbum;
+--  end;
+--end;
+
+Journal Alboms title "Альбомы" :Version2;
   Records Refs.Albums;
   Filter "";
   DateField Year;
+--  EnableField Проведен;
 
   Card Com.BaseCard;
 
-  Operation Album.RegisterAlbum from GenresAlbums;
---    parameter Musicant from ^Musicant;
---    parameter Single from Single;
-    parameter GenresAlbums  from GenresAlbum;
-  end;
-end;
+  LoadingFields Single, Code, GenresAlbums.GenresAlbum;
 
+  Operation AlbumEx.Regestry;
+end;

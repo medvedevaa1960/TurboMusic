@@ -1,0 +1,15 @@
+class "" from Refs.Albums struct GenresAlbums
+inobject public
+
+  field Single :Logical from Single
+  field Genre  :refGenres from GenresAlbums.GenresAlbum
+  field Code   :String from Code
+
+  oper Regestry;
+    var vRefAlbum = refAlbums.OpenName(Code)
+    for var I = 1..vRefAlbum?.MusicantAlbum.Count do
+      Debit Music.MSC1, Musicant = vRefAlbum.MusicantAlbum.Items[I].Musicant, Genre = Genre;
+    end
+  end
+
+end

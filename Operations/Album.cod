@@ -1,8 +1,10 @@
 class "";
 
-  oper RegisterAlbum (Musicant :refMusicants = nil; GenresAlbums :refGenres = nil);
-    Debit Music.MSC1, Musicant = Musicant, Genre = GenresAlbums;
-    -- Customer = Customer, DocType = 1, Комментарий = Comment + '(' + Str(ID) + ')';
+  oper RegisterAlbum (AlbumCode :String = ''; Genre :refGenres = nil);
+    var vRefAlbum = refAlbums.OpenName(AlbumCode)
+    for var I = 1..vRefAlbum?.MusicantAlbum.Count do
+      Debit Music.MSC1, Musicant = vRefAlbum.MusicantAlbum.Items[I].Musicant, Genre = Genre;
+    end
   end;
 
 

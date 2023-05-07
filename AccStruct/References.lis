@@ -1,6 +1,8 @@
 reference  refGenres from   Refs.Genres, filter "", title "Жанры";
   field Code        synonym Код, Name    :String, from Code;
   field Description synonym Наименование :String, notrefresh, notloaded, from Name;
+necessary
+  шт;
 end;
 
 reference  refMusicants from   Refs.Musicants, title "Музыканты";
@@ -8,8 +10,17 @@ reference  refMusicants from   Refs.Musicants, title "Музыканты";
   field Description synonym Наименование :String, notrefresh, notloaded, from Name;
 end;
 
-reference refUnit synonym спрЕдИзм :Cur, title "@Unit:RefTitle=Валюты и единицы измерения";
-  field Code synonym Код, Name     :String;
+reference  refAlbums from   Refs.Albums, title "Альбомы";
+  field Code        synonym Код, Name    :String, from Code;
+  field Description synonym Наименование :String, notrefresh, notloaded, from Name;
+  struct MusicantAlbum array integer, from MusicantAlbum;
+    field Musicant : refMusicants, from Musicant;
+  end;
+end;
+
+
+reference refUnit synonym спрЕдИзм :Cur, from Refs.Unit, title "@Unit:RefTitle=Валюты и единицы измерения";
+  field Code synonym Код, Name     :String, from Code;
 necessary
   шт;
 end;

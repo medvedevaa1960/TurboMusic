@@ -15,7 +15,7 @@ inclass public
 inobject public
 
   GenresAlbums :Com.ISubtable{Rec.GenresStructAlbums};
-  Singled      :Com.Fld.IField as Logical;
+  Singled      :Com.Fld.IField as Logical := true;
   Year         :Com.Fld.IField as Date;
   Musicant     :Com.ISubtable{Rec.MusicantStruct};
 
@@ -26,5 +26,18 @@ inobject public
 --      end
 --    end
 --  end
+
+proc Init
+  inherited Init
+--  if IsNew then
+--    Singled = true
+--  end
+end
+
+#override
+proc DoCreate
+  inherited DoCreate
+  Singled = true
+end
 
 end

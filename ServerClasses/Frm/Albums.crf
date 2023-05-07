@@ -13,7 +13,7 @@
         </Inherited>
         <Component Name="Group2" Class="Com.Ctrl.IGroup">
           <Component Name="Year" Class="Com.Ctrl.IEdit" Caption="Год выпуска" Field="EdtRec.Year" FieldFormat="YYYY"/>
-          <Component Name="Singled" Class="Com.Ctrl.ICheckBox" Caption="Одинарный" Field="EdtRec.Singled"/>
+          <Component Name="Singled" Class="Com.Ctrl.ICheckBox" CanSelect="False" Caption="Одинарный" Field="EdtRec.Singled" HasCaption="False" Wrap="False"/>
         </Component>
         <Component Name="Group3" Class="Com.Ctrl.IGroup">
           <Component Name="ButAddGenresForAlbum" Class="Com.Ctrl.IButton" Alignment="CenterAlign" Caption="Добавить жанры к альбому" Enabled="True" FixSize="False" HasCaption="False" Multiline="False" OnClick="ButAddGenresForAlbumOnClick" Width="80" Wrap="False"/>
@@ -21,7 +21,7 @@
       </Inherited>
       <Inherited Name="TabsFrame" Visible="True">
         <Inherited Name="MainTab" Caption="Исполнитель, его жанры" Visible="True">
-          <Component Name="Musicant" Class="Com.Ctrl.ITable" Adaptive="True" Subtable="EdtRec.Musicant" Visible="True">
+          <Component Name="Musicant" Class="Com.Ctrl.ITable" Adaptive="True" OnDelete="MusicantOnDelete" Subtable="EdtRec.Musicant" Visible="True">
             <Component Name="Musicants" Class="Com.Ctrl.IEdit" Caption="Исполнитель" CardFileClass="MyMusic.Tab.Musicants" Field="MusicantStruct.Musicant" HasButton="True" LookupField="Name" OnChange="MusicantsOnChange" Visible="True"/>
           </Component>
           <Component Name="Genres" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Enabled="False" Subtable="EdtRec.GenresAlbums" Visible="True">

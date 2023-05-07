@@ -1,0 +1,3 @@
+record Unit inherited Com.Base.CodeName title "Единицы измерения";
+
+end;

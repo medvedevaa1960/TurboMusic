@@ -7,7 +7,17 @@ inclass public
   #override
   var UseResource :Logical := true
 
+
 inobject private
+
+  proc ButtonAddItem_OnClick(aSender :Com.Ctrl.IControl; aIndex :Integer)
+
+    inherited ButtonAddItem_OnClick(aSender, aIndex)
+    -- var x = aSender[aIndex];
+    -- var y = 0
+    -- RecordClass.Single.Checked = true;
+  end
+
  proc Init;
    inherited Init;
 
