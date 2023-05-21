@@ -1,0 +1,16 @@
+class "" from Refs.Albums struct MusicantAlbum
+inobject public
+
+  field Musicant  :refMusicants from MusicantAlbum.Musicant
+--  field Album     :refAlbums
+  field Code      :String from Code
+  field Name      :String from Name
+
+  oper Regestry;
+    var vRefAlbum = refAlbums.OpenName(Code)
+    for var I = 1..vRefAlbum?.MusicantAlbum.Count do
+      Debit Music.MSC2, Musicant = vRefAlbum.MusicantAlbum.Items[I].Musicant, Albums = vRefAlbum--Album;
+    end
+  end
+
+end

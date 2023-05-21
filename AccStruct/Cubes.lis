@@ -1,14 +1,22 @@
 domain Music notaccumulated, static;
 
 type TMusicCube;
---  parameter Time        :Date;
+  -- parameter Time        :Date;
   parameter Musicant    :refMusicants;
   parameter Genre       :refGenres;
   parameter Counter     :unit refUnit = 1^шт;
 end;
 
+type TMusicCubeEx;
+  -- parameter Time        :Date;
+  parameter Musicant    :refMusicants;
+  parameter Albums      :refAlbums;
+  parameter Counter     :unit refUnit = 1^шт;
+end;
+
 accounts Music;
   счет MSC1  :TMusicCube;
+  счет MSC2  :TMusicCubeEx;
 end;
 
 --Journal Alboms title "Альбомы";
@@ -37,4 +45,17 @@ Journal Alboms title "Альбомы" :Version2;
   LoadingFields Single, Code, GenresAlbums.GenresAlbum;
 
   Operation AlbumEx.Regestry;
+end;
+
+Journal Alboms2 title "Музыканты и количество альбомов" :Version2;
+  Records Refs.Albums;
+  Filter "";
+  DateField Year;
+--  EnableField Проведен;
+
+  Card Com.BaseCard;
+
+  LoadingFields Single, Code, Name, Year, MusicantAlbum.Musicant;
+
+  Operation Album2.Regestry;
 end;

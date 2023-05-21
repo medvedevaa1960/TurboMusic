@@ -1,11 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Resource Version="2" Inherited="Com.Cmd2.IRoleCenter">
-  <Inherited>
-    <Inherited Name="MainGroup">
-      <Component Name="Group1" Class="Com.Cmd2.IGroup" Caption="Справочники">
+  <Inherited Caption="Музыкальный каталог" CaptionAlign="CenterAlign" FormIcon="Com.Reference">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="grpRefs" Class="Com.Cmd2.IGroup" Caption="Справочники" Orientation="Vertical">
         <Component Name="OpenGenres" Class="Com.ComManaging.OpenIForm" Caption="Жанры" FormClassName="MyMusic.Tab.Genres" IconName="Com.Tasks"/>
         <Component Name="OpenMusicants" Class="Com.ComManaging.OpenIForm" Caption="Исполнители" FormClassName="MyMusic.Tab.Musicants" IconName="Com.User_"/>
         <Component Name="OpenAlbums" Class="Com.ComManaging.OpenIForm" Caption="Альбомы" FormClassName="MyMusic.Tab.Albums" IconName="Com.layer-group-regular"/>
+      </Component>
+      <Component Name="Group4" Class="Com.Cmd2.IGroup" Orientation="Horizontal">
+        <Component Name="grpCommands" Class="Com.Cmd2.IGroup" Caption="Команды" Orientation="Vertical">
+          <Component Name="cmdCalc" Class="Com.ComManaging.ExecCommand" CommandName="Kernel.Service.Calculator"/>
+        </Component>
+        <Component Name="gtpReports" Class="Com.Cmd2.IGroup" Caption="Отчеты" Orientation="Vertical">
+          <Component Name="OpenReportMusicantsToGenres" Class="Com.ComManaging.OpenReport" Caption="Количество музыкантов по жанрам" IconName="Com.cell-frozen" ReportCode="Количество музыкантов по жанрам"/>
+          <Component Name="OpenReportChess" Class="Com.ComManaging.OpenReport" Caption="Шахматка: музыканты по жанрам" IconName="Com.cell-col" ReportCode="Шахматка: музыканты по жанрам"/>
+        </Component>
       </Component>
     </Inherited>
   </Inherited>

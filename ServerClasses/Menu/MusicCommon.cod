@@ -3,8 +3,14 @@ class inherited Com.Cmd2.IMenu "";
 inclass
 
 inobject
-  cmdOpenGenres :Com.ComManaging.OpenIForm;
+  cmdOpenGenres    :Com.ComManaging.OpenIForm;
   cmdOpenMusicants :Com.ComManaging.OpenIForm;
-  cmdOpenAlbums :Com.ComManaging.OpenIForm;
+  cmdOpenAlbums    :Com.ComManaging.OpenIForm;
+
+  cmdCalc          :Com.ComManaging.ExecCommand;
+  cmdRoleCenter    :Com.ComManaging.ExecCommand;
+
+  cmdOpenReportMusicantsToGenres :Com.ComManaging.OpenReport;
+  cmdOpenReportChess             :Com.ComManaging.OpenReport;
 
 end
