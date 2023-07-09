@@ -14,9 +14,31 @@ type TMusicCubeEx;
   parameter Counter     :unit refUnit = 1^шт;
 end;
 
+type TFlowBaseCube;
+  parameter IsPlan      :Logical = false;
+  parameter Comment     :String;
+  parameter Sum         :unit refUnit = 200^руб;
+end;
+
+type TFlowAlbumsCube inherited TFlowBaseCube;
+  parameter Album      :refAlbums;
+end;
+
+type TFlowWithCountCube inherited TFlowAlbumsCube;
+  parameter Counter     :unit refUnit = 1^шт;
+end;
+
 accounts Music;
   счет MSC1  :TMusicCube;
   счет MSC2  :TMusicCubeEx;
+end;
+
+accounts MusicFlow;
+  счет Вналичии  :TFlowWithCountCube  title 'Альбомы в наличии';
+  счет ВАренде   :TFlowWithCountCube  title 'Альбомы в аренде';
+  счет ДС        :TFlowBaseCube title 'Денежные средства в наличии';
+  счет ФинРез    :TFlowAlbumsCube  title 'Финансовый результат от сдачи в аренду';
+  счет Вложения  :TFlowAlbumsCube  title 'Сумма вложений';
 end;
 
 --Journal Alboms title "Альбомы";
@@ -58,4 +80,57 @@ Journal Alboms2 title "Музыканты и количество альбомов" :Version2;
   LoadingFields Single, Code, Name, Year, MusicantAlbum.Musicant;
 
   Operation Album2.Regestry;
+end;
+
+Journal Rentals title "Сдача в аренду" :Version2;
+  Records Data.RentalDoc;
+  Filter "StartRental <> Nil";
+  DateField StartRental;
+--  EnableField Проведен;
+
+  Card Com.BaseCard;
+
+  LoadingFields Album, Sum;
+
+  Operation Flows.Rental.Rental;
+end;
+
+Journal ReturnRentals title "Сдача в аренду" :Version2;
+  Records Data.RentalDoc;
+  Filter "EndRental <> Nil";
+  DateField EndRental;
+--  EnableField Проведен;
+
+  Card Com.BaseCard;
+
+  LoadingFields Album;
+
+  Operation Flows.ReturnRental.ReturnRental;
+end;
+
+Journal PlanReturnRentals title "Сдача в аренду" :Version2;
+  Records Data.RentalDoc;
+  Filter "EndPlanRental <> Nil";
+  DateField EndPlanRental;
+--  EnableField Проведен;
+
+  Card Com.BaseCard;
+
+  LoadingFields Album;
+
+  Operation Flows.ReturnRental.PlanReturnRental;
+end;
+
+
+Journal PurchasedAlbums title "Приобретение альбомов" :Version2;
+  Records Refs.Albums;
+  Filter "Purchased <> Nil";
+  DateField Purchased;
+--  EnableField Проведен;
+
+  Card Com.BaseCard;
+
+  LoadingFields DocID, Price;
+
+  Operation Flows.PurchasedAlbums.Execute;
 end;

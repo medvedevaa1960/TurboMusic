@@ -1,0 +1,14 @@
+class inherited Com.Frm.ICodeName "Прокат";
+
+inclass public
+
+  var RecordClass :Class Com.Rec.CodeName := Rec.Data.RentalDoc;
+
+inclass private
+
+ #override
+  var UseResource :Logical := true;
+
+inobject
+
+end

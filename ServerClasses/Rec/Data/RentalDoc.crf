@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rec.CodeName">
+  <Inherited>
+    <Component Name="fldStartRental" Class="Com.Fld.IField" After="#0" Caption="Отдан в прокат" FieldName="StartRental"/>
+    <Component Name="fldPlanEndRental" Class="Com.Fld.IField" Caption="Плановый возврат" FieldName="EndPlanRental"/>
+    <Component Name="fldEndRental" Class="Com.Fld.IField" Caption="Реальный возврат" FieldName="EndRental"/>
+    <Component Name="fldSum" Class="Com.Fld.IField" Caption="Сумма" FieldName="Sum"/>
+    <Component Name="fldCommit" Class="Com.Fld.IField" Caption="Комментарий" FieldName="Comment"/>
+    <Component Name="fldAlbum" Class="Com.Fld.IField" Caption="Альбом" FieldName="Album"/>
+    <Inherited Name="Name" OnCalc="NameOnCalc"/>
+  </Inherited>
+</Resource>

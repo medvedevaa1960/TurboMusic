@@ -18,6 +18,9 @@ inobject public
   Singled      :Com.Fld.IField as Logical := true;
   Year         :Com.Fld.IField as Date;
   Musicant     :Com.ISubtable{Rec.MusicantStruct};
+  Purchased    :Com.Fld.IField as Date;
+  Priced       :Com.Fld.IField as Numeric;
+--  Rentals      :Com.ISubtable{Rec.RentalStruct};
 
 --  func HasGenre(aGenre :Rec.Genres) :Logical
 --    for var I = 1..GenresAlbums.Count do

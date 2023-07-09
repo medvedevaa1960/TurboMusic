@@ -1,0 +1,14 @@
+class "Приобретение адьбомов" from Refs.Albums;
+
+inobject public
+
+  field  AlbumPrice       :Numeric from Price
+  field  AlbumID          :Integer from DocID
+
+  -- field Sum          :Numeric from Sum
+  oper Execute
+    var vRefAlbum = refAlbums.Open(AlbumID)
+    transaction MusicFlow.Вналичии, MusicFlow.Вложения, Album = vRefAlbum, Sum = AlbumPrice^refUnit.руб, Comment = 'Приход дисков'
+    -- transaction MusicFlow.ДС, MusicFlow.ФинРез, Album = Album, Sum = Sum^refUnit.руб, Comment = 'Доход от аренды'
+  end
+end

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="MyMusic.Rec.Data.RentalDoc" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" Visible="True"/>
+          <Inherited Name="Name" Visible="True"/>
+          <Component Name="fldStartRental" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="EdtRec.fldStartRental" HasCaption="True"/>
+          <Component Name="fldEndPlanRental" Class="Com.Ctrl.IEdit" Caption="Плановая дата окончания" Field="EdtRec.fldPlanEndRental" HasCaption="True"/>
+          <Component Name="fldEndRental" Class="Com.Ctrl.IEdit" Caption="Фактическая дата окончания" Field="EdtRec.fldEndRental" HasCaption="True"/>
+          <Component Name="fldSum" Class="Com.Ctrl.IEdit" Caption="Сумма" Field="EdtRec.fldSum" HasCaption="True"/>
+          <Component Name="fldCommit" Class="Com.Ctrl.IEdit" Caption="Комментарий" Field="EdtRec.fldCommit" HasCaption="True"/>
+          <Component Name="fldAlbum" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" Caption="Альбом" CardFileClass="MyMusic.Tab.Albums" Field="EdtRec.fldAlbum" HasButton="True" HasCaption="True" LookupField="Name"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

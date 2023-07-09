@@ -1,0 +1,30 @@
+class inherited Com.Rec.CodeName "";
+
+inclass public
+
+  #override
+  var UseResource :Logical := true
+
+  #override
+  var RecordClass :Class Record := Data.RentalDoc;
+  #override
+  var EditorClass :Class Com.Frm.IEditor := Frm.Data.Rental;
+  #override
+  var CardFormClass :Class  Com.Tab.CodeName := Tab.Data.Rental;
+
+inobject public
+
+  fldStartRental   :Com.Fld.IField as Date;
+  fldPlanEndRental :Com.Fld.IField as Date;
+  fldEndRental    :Com.Fld.IField;
+  fldSum           :Com.Fld.IField as Numeric;
+  fldCommit        :Com.Fld.IField as String;
+  fldAlbum         :Com.Fld.IField as Rec.Albums;
+
+  func NameOnCalc(aSender :Com.Fld.IValue) :Variant
+    Name$ = Sys.Strings.FormatA('Сдача в прокат №%s от %s', Code$, fldStartRental)
+  end
+
+inobject
+
+end

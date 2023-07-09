@@ -1,0 +1,12 @@
+class inherited Com.Tab.CodeName "Прокат";
+
+inclass public
+
+  var RecordClass :Class Com.Rec.IRecord := Rec.Data.RentalDoc;
+
+  #override
+  var UseResource :Logical := true
+
+inobject
+
+end

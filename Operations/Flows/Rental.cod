@@ -1,0 +1,12 @@
+class "Сдача в аренду" from Data.RentalDoc;
+
+inobject public
+
+  field  Album       :refAlbums from Album
+  field Sum          :Numeric from Sum
+
+  oper Rental
+    transaction MusicFlow.ВАренде, MusicFlow.Вналичии, Album = Album, Sum = Album?.Price^refUnit.руб, Comment = 'Передача в аренду'
+    transaction MusicFlow.ДС, MusicFlow.ФинРез, Album = Album, Sum = Sum^refUnit.руб, Comment = 'Доход от аренды'
+  end
+end

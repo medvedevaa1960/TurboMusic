@@ -3,7 +3,10 @@
   <Inherited>
     <Component Name="Year" Class="Com.Fld.IField" After="#0" FieldName="Year" ValueType="VarDate"/>
     <Component Name="Singled" Class="Com.Fld.IField" Extra="False" FieldName="Single" ValueType="VarLogical"/>
+    <Component Name="Purchased" Class="Com.Fld.IField" FieldName="Purchased" ValueType="VarDate"/>
+    <Component Name="Priced" Class="Com.Fld.IField" FieldName="Price" ValueType="VarNumeric"/>
     <Component Name="Musicant" Class="Com.ISubtable" StructClass="MyMusic.Rec.MusicantStruct" SubtableName="MusicantAlbum"/>
     <Component Name="GenresAlbums" Class="Com.ISubtable" StructClass="MyMusic.Rec.GenresStructAlbums" SubtableName="GenresAlbums"/>
+    <Component Name="Rentals" Class="Com.ISubtable" Excluded="True" StructClass="MyMusic.Rec.RentalStruct" SubtableName="Rentals"/>
   </Inherited>
 </Resource>

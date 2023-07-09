@@ -1,3 +1,8 @@
-record OperDoc title "";
-
+record RentalDoc inherited Com.Base.CodeName title "Прокат";
+  field StartRental     :Date;    -- Когда отдан на прокат
+  field EndPlanRental   :Date;    -- Когда должен вернуться с проката
+  field EndRental       :Date;    -- Когда реально возвратился с проката
+  field Sum             :Numeric; -- Доход
+  field Comment         :String;  -- Примечание
+  field Album           :Refs.Albums; -- альбом
 end;

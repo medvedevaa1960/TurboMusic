@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Resource Version="2" Inherited="Com.Frm.ICodeName">
-  <Inherited>
+  <Inherited OnShow="EditorOnShow">
     <Inherited Name="EdtRec" Class="MyMusic.Rec.Albums" IsLibrary="1"/>
     <Component Name="AddGenres" Class="MyMusic.Rec.GenresStruct" IsLibrary="1" After="EdtRec"/>
     <Component Name="MusicantStruct" Class="MyMusic.Rec.MusicantStruct" IsLibrary="1"/>
@@ -14,6 +14,10 @@
         <Component Name="Group2" Class="Com.Ctrl.IGroup">
           <Component Name="Year" Class="Com.Ctrl.IEdit" Caption="Год выпуска" Field="EdtRec.Year" FieldFormat="YYYY"/>
           <Component Name="Singled" Class="Com.Ctrl.ICheckBox" CanSelect="False" Caption="Одинарный" Field="EdtRec.Singled" HasCaption="False" Wrap="False"/>
+        </Component>
+        <Component Name="GroupDigital" Class="Com.Ctrl.IGroup" ByColumn="True">
+          <Component Name="YearPurchase" Class="Com.Ctrl.IEdit" Caption="Когда куплен" Field="EdtRec.Purchased" FieldFormat="YYYY" Wrap="False"/>
+          <Component Name="Price" Class="Com.Ctrl.IEdit" Caption="Цена" Field="EdtRec.Priced" Wrap="False"/>
         </Component>
         <Component Name="Group3" Class="Com.Ctrl.IGroup">
           <Component Name="ButAddGenresForAlbum" Class="Com.Ctrl.IButton" Alignment="CenterAlign" Caption="Добавить жанры к альбому" Enabled="True" FixSize="False" HasCaption="False" Multiline="False" OnClick="ButAddGenresForAlbumOnClick" Width="80" Wrap="False"/>
@@ -31,6 +35,11 @@
         <Component Name="FrameAdd" Class="Com.Ctrl.IFrame" Caption="Добавить жанры" Visible="False">
           <Component Name="AddGenresForAlbums" Class="Com.Ctrl.ITable" Adaptive="True" Visible="True">
             <Component Name="AddGenresInAlbum" Class="Com.Ctrl.IEdit" Caption="Жанры" CardFileClass="MyMusic.Tab.Genres" Field="AddGenres.Genre" HasButton="True" LookupField="Name" Visible="True"/>
+          </Component>
+        </Component>
+        <Component Name="FrameRentals" Class="Com.Ctrl.IFrame" Caption="Прокат">
+          <Component Name="TableRentals" Class="Com.Ctrl.ITable" Excluded="True" Adaptive="True" Subtable="EdtRec.Rentals" Visible="True">
+            <Component Name="StartRental" Class="Com.Ctrl.IEdit" Caption="Дата начала" CardFileClass="MyMusic.Data.OperDoc.RentalDoc" Field="Rentals.Rental" HasButton="True" LookupField="Name" Visible="True"/>
           </Component>
         </Component>
       </Inherited>

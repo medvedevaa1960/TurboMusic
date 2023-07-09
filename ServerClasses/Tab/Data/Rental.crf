@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited>
+    <Inherited Name="Current" Class="MyMusic.Rec.Data.RentalDoc" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Visible="True"/>
+          <Inherited Name="Code" Visible="True"/>
+          <Component Name="StartRental" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="Current.fldStartRental" HasCaption="True" Width="30"/>
+          <Component Name="EndPlanRental" Class="Com.Ctrl.IEdit" Caption="Плановая дата окончания" Field="Current.fldPlanEndRental" HasCaption="True" Width="30"/>
+          <Component Name="EndRental" Class="Com.Ctrl.IEdit" Caption="Фактическая дата окончания" Field="Current.fldEndRental" HasCaption="True" Width="30"/>
+          <Component Name="Sum" Class="Com.Ctrl.IEdit" Caption="Сумма" Field="Current.fldSum"/>
+          <Component Name="Commit" Class="Com.Ctrl.IEdit" Caption="Примечание" Field="Current.fldCommit"/>
+          <Component Name="Album" Class="Com.Ctrl.IEdit" Caption="Альбом" Field="Current.fldAlbum" LookupField="Name"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

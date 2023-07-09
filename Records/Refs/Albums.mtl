@@ -1,6 +1,20 @@
 record Albums inherited Com.Base.CodeName title "Альбомы";
-  field Year :Date;
-  field Single :Logical;
+  field Year           :Date;
+  field Single         :Logical;
+  field Purchased      :Date;  -- Когда куплен
+  field Price          :Numeric;  -- Цена
+
+--  struct Rentals array integer title "Прокат";
+--    field Rental       :Data.RentalDoc;
+--  end;
+
+
+--  struct Rental array integer title "Прокат";
+--    field StartRental :Date;    -- Когда отдан на прокат
+--    field EndRental   :Date;    -- Когда возвратился с проката
+--    field Sum         :Numeric; -- Доход
+--    field Comment     :String;  -- Примечание
+--  end;
 
   struct MusicantAlbum array integer title "Исполнитель";
     field Musicant : Refs.Musicants;

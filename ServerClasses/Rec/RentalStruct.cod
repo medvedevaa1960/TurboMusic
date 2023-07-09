@@ -1,0 +1,22 @@
+class inherited Com.IStruct "Структура с данными проката для альбомов";
+
+inclass
+
+ type TRentalStruct = Refs.Albums.Rentals
+
+ #override
+  var UseResource :Logical := true;
+
+inclass public
+  #override
+  var StructClass :Class Structure := TRentalStruct;
+
+inobject  public
+
+  Rental :Com.Fld.IField{Refs.Albums.Rentals};
+--  fldStartRental :Com.Fld.IField as Date;
+--  fldEndRental :Com.Fld.IField as Date;
+--  fldSum :Com.Fld.IField as Numeric;
+--  fldComment :Com.Fld.IField as String;
+
+end

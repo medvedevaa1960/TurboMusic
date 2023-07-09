@@ -23,6 +23,11 @@ inobject private
   Year           :Com.Ctrl.IEdit;
   MusicantStruct :MyMusic.Rec.MusicantStruct;
   AddGenres      :MyMusic.Rec.GenresStruct;
+  YearPurchase   :Com.Ctrl.IEdit; -- Когда диск куплен
+  FrameRentals   :Com.Ctrl.IFrame;
+  Price          :Com.Ctrl.IEdit; -- Стоимость диска
+--  Rentals        :MyMusic.Rec.RentalStruct;
+
 
   func MusicantOnDelete(aSender :Com.Ctrl.ITable; aIndex :Integer) :Logical
     -- Удалили все жанры
@@ -34,6 +39,7 @@ inobject private
   proc EditorOnShow(aSender :Com.Frm.IForm)
     if FRecord.IsNew then
       Singled.Checked = true
+      Price.SetValue(250)
     end
   end
 
@@ -110,12 +116,27 @@ inobject private
 --    end
   end
 
+  #override
+  proc Init;
+    inherited Init
+    var vRentalsTab = Tab.Data.Rental.Create
+    vRentalsTab.AddOnCreateRecord(
+     proc(aRec :Com.Rec.IRecord)
+       if aRec is Rec.Data.RentalDoc then
+         Rec.Data.RentalDoc(aRec).fldAlbum = FRecord
+       end
+     end
+    )
+    vRentalsTab.CardFile.Filter = 'Album = ' + fRecord.DocIDStr
+    FrameRentals.AddComp(vRentalsTab)
+  end
 
   #override
   proc InitRecord;
      inherited InitRecord;
      GenresStructAlbums = FRecord.GenresAlbums.DefStruct
      MusicantStruct = FRecord.Musicant.DefStruct
+    -- Rentals = FRecord.Rentals.DefStruct
      -- Одинарный включено по умолчанию
      -- Singled.Checked = FRecord.Singled
      -- AddGenres = GenresStruct.DefStruct
@@ -126,7 +147,10 @@ inobject private
     inherited AfterInit
     GenresStructAlbums = nil
     MusicantStruct = nil
+    -- Rentals = nil
     -- Singled.Checked = true
   end
+
+
 
 end
