@@ -1,0 +1,54 @@
+class "Форма для экспериментов";
+
+inclass public
+--  X: Integer;
+--  Y: Integer;
+
+
+inobject public
+  type TNumberType = (
+                Zero = 0, -- ноль (0)
+                One, -- один (1)
+                Two, -- два  (2)
+                Three, -- три (3)
+                Five = 5, -- пять (5)
+                Six, -- шесть (6)
+                Seven, -- семь (7)
+                Eight, -- восемь (8)
+                Nine, -- девять (9)
+        );
+
+  X: Integer;
+  Y: String;
+  Z: TNumberType;
+
+-- Массив названий цифр
+NumberNames: String[] = ["Ноль", "Один", 
+                "Два", "Три", "Цифра пропущена", "Пять","Шесть",
+                "Семь", "Восемь", "Девять"];
+
+--------------------------------------------------------------------------------
+--{ Обработчики событий бланка
+  -- функция возвращает по обозначению цифры ее название,
+  -- предварительно преобразовав обозначение в цифру
+  func NameOfType(CurType: TNumberType): String;
+        Result = NumberNames[Integer(CurType) + 1];
+  end;
+  -- функция возвращает по цифре ее название,
+  -- вызывая NameOfType() с параметром типа TNumberType
+  func NameOfTypeStr(Value :Variant): String;
+        Result = NameOfType(TNumberType(Value));
+  end;
+
+  proc Button1OnClick(Sender :Button)
+       Y = NameOfTypeStr(X);
+
+  end
+
+  proc Button2OnClick(Sender :Button)
+      Y = NameOfType(TNumberType(X));
+  end
+
+--}
+
+end

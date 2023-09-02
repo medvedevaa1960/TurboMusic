@@ -10,5 +10,6 @@
     <Group Name="ServerClasses" Type="Classes" Disabled="False"/>
     <Group Name="AccStruct" Type="CalcStructs" Disabled="False"/>
     <Group Name="Operations" Type="CalcClasses" Disabled="False"/>
+    <Group Name="Forms" Type="Blanks" Disabled="False"/>
   </Groups>
 </Project>
